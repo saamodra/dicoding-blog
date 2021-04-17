@@ -37,7 +37,7 @@ body {
 
 .header__title {
     font-weight: 300;
-    font-size: 4em;
+    font-size: 3.5em;
     margin: 0.5em 0.25em;
     display: inline-block;
     color: #212121;
@@ -62,17 +62,17 @@ body {
 
 .nav__item {
     box-sizing: border-box;
-    display: inline-block;
-    width: 24%;
-    text-align: center;
+    display: block;
+    text-align: left;
     line-height: 24px;
     padding: 24px;
-    text-transform: uppercase;
+    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .nav a {
     text-decoration: none;
     color: #616161;
+    text-transform: uppercase;
 }
 
 .nav a:hover {
@@ -80,6 +80,36 @@ body {
     color: #000;
 }
 
+#hamburger {
+    background: rgb(252, 252, 252);
+    border: none;
+    outline: none;
+    font-size: 2.5em;
+    margin: 0 auto;
+    width: 100%;
+    padding: 18px;
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: right;
+    top: 0;
+}
+
+#drawer {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    border: 1px solid rgb(230, 230, 230);
+    /* menyembunyikan #drawer -250px (sesuai dengan ukuran lebar drawer) ke kiri */
+    transform: translate(-250px, 0);
+    transition: transform 0.3s ease-in-out;
+    background-color:rgb(252, 252, 252);
+}
+
+#drawer.open {
+    transform: translate(0, 0);
+}
 
 /*
  * Jumbotron
@@ -104,13 +134,13 @@ body {
 .hero__title {
     color: #fff;
     font-weight: 500;
-    font-size: 36px;
+    font-size: 2.5em;
 }
 
 .hero__tagline {
     color: #fff;
     margin-top: 16px;
-    font-size: 18px;
+    font-size: 1.5em;
     font-weight: 300;
 }
 
@@ -138,7 +168,8 @@ main {
 
 .headline {
     display: grid;
-    overflow: auto;
+    overflow: hidden;
+    column-gap: 32px;
 }
 
 .headline__figure {
@@ -160,8 +191,7 @@ main {
 
 .headline__content {
     width: 100%;
-    float: left;
-    padding: 16px 32px;
+    padding: 16px 0;
 }
 
 .headline__title {
@@ -170,8 +200,9 @@ main {
 }
 
 .headline__description {
-    font-size: 16px;
+    font-size: 1.2em;
     margin-top: 12px;
+    line-height: 20px;
 }
 
 .headline__button {
@@ -236,7 +267,7 @@ main {
 }
 
 .post-item__content {
-    padding: 16px 32px 32px 32px;
+    padding: 16px 24px 24px 24px;
 }
 
 .post-item__thumbnail {
@@ -244,7 +275,7 @@ main {
 }
 
 .post-item__date {
-    font-size: 10px;
+    font-size: .75em;
     text-transform: uppercase;
     color: #999;
 }
@@ -256,7 +287,8 @@ main {
 
 .post-item__title {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.5em;
+    line-height: 1.5em;
     margin-top: 16px;
     transition: 0.3s opacity;
 }
@@ -272,7 +304,7 @@ main {
 
 .post-item__description {
     margin-top: 16px;
-    font-size: 14px;
+    font-size: 1em;
     line-height: 1.5em;
 }
 
@@ -303,9 +335,50 @@ footer a {
     color: #fff
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 600px) {
+    #drawer {
+        border: none;
+        width: 100%;
+        position: relative;
+        transform: translate(0, 0);
+    }
+    #hamburger {
+        display: none;
+    }
+    .nav__item {
+        border: none;
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 700px) {
     .posts {
         grid-template-columns: 1fr 1fr;
+    }
+    .hero__title {
+        font-size: 3em;
+    }
+    .hero__tagline {
+        font-size: 2em;
+    }
+    .headline__content {
+        padding: 20px;
+    }
+    .headline__description {
+        font-size: 1.4em;
+        line-height: 1.5em;
+    }
+    .post-item__date {
+        font-size: .8em;
+    }
+    .post-item__title {
+        font-size: 1.5em;
+    }
+    .post-item__description {
+        font-size: 1.1em;
+    }
+    .post-item__content {
+        padding: 16px 32px 32px 32px;
     }
 }
 
@@ -313,11 +386,21 @@ footer a {
     .headline {
         grid-template-columns: 1fr 1fr;
     }
-
+    .hero__title {
+        font-size: 3.6em;
+    }
+    .hero__tagline {
+        font-size: 2.2em;
+    }
     .posts {
         grid-template-columns: repeat(3, 1fr);
     }
-
+    .post-item__title {
+        font-size: 1.7em;
+    }
+    .post-item__description {
+        font-size: 1.2em;
+    }
     .content {
         max-width: 1200px;
         margin: 0 auto;

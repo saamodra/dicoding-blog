@@ -15,22 +15,24 @@
         </h1>
     </div>
 </header>
-<nav id="drawer" class="nav">
-    <ul class="nav__list">
-        <li class="nav__item"><a href="#">Articles</a></li>
-        <li class="nav__item"><a href="#">Tutorials</a></li>
-        <li class="nav__item"><a href="#">Information</a></li>
-        <li class="nav__item"><a href="#">Stories</a></li>
-    </ul>
-</nav>
-<div class="hero">
-    <div class="hero__inner">
-        <h1 class="hero__title">Bangun Karirmu Sebagai Developer Profesional</h1>
-        <p class="hero__tagline">Jadilah tuan rumah di negeri sendiri dengan belajar langsung dari para inovator dan
-            developer expert</p>
-    </div>
-</div>
+
 <main>
+    <button id="hamburger">☰</button>
+    <nav id="drawer" class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="#">Articles</a></li>
+            <li class="nav__item"><a href="#">Tutorials</a></li>
+            <li class="nav__item"><a href="#">Information</a></li>
+            <li class="nav__item"><a href="#">Stories</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <div class="hero__inner">
+            <h1 class="hero__title">Bangun Karirmu Sebagai Developer Profesional</h1>
+            <p class="hero__tagline">Jadilah tuan rumah di negeri sendiri dengan belajar langsung dari para inovator dan
+                developer expert</p>
+        </div>
+    </div>
     <section class="content">
         <article class="headline">
             <figure class="headline__figure">
@@ -161,5 +163,20 @@
         <li><a href="#">Contact</a></li>
     </ul>
 </footer>
+<script>
+    const hamburgerButtonEl = document.querySelector("#hamburger");
+    const drawerElement = document.querySelector("#drawer");
+    const mainEl = document.querySelector("main");
+
+    hamburgerButtonEl.addEventListener("click", event => {
+        drawerElement.classList.toggle("open");
+        event.stopPropagation();
+    });
+
+    mainEl.addEventListener("click", event => {
+        drawerElement.classList.remove("open");
+        event.stopPropagation();
+    });
+</script>
 </body>
 </html>
