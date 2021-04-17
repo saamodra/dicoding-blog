@@ -137,6 +137,7 @@ main {
  */
 
 .headline {
+    display: grid;
     overflow: auto;
 }
 
@@ -219,7 +220,8 @@ main {
 .posts {
     margin: 32px auto auto;
     text-align: left;
-    overflow: auto;
+    display: grid;
+    gap: 16px;
 }
 
 /*
@@ -227,8 +229,6 @@ main {
  */
 
 .post-item {
-    float: left;
-    margin: 16px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
     border-radius: 5px;
@@ -301,4 +301,25 @@ footer li {
 footer a {
     text-decoration: none;
     color: #fff
+}
+
+@media screen and (min-width: 650px) {
+    .posts {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .headline {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .posts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 }
